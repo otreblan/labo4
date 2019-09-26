@@ -4,12 +4,74 @@
 % Aquí empieza el documento{{{
 \begin{document}
 
-\maketitle
+%\maketitle
 \thispagestyle{fancy}
 
-\section*{Experiencia 1}%
-\label{sec:Experiencia_1}
+\begin{center}
+	LABORATORIO DE FÍSICA 2\\
+	Informe del Laboratorio N° 1
+\end{center}
 
+\noindent
+\begin{tikzpicture}
+	\tikzmath
+	{
+		coordinate \xMa;
+		\xMa = (\textwidth-1.6pt,0);
+	}
+	\draw [ultra thick](0,0) rectangle ++(\xMax*0.8,-5)
+		++(0.25,0)
+		rectangle (\xMax,0);
+
+	\draw(2,-.5) node {Título del laboratorio};
+	\draw({(\xMax*0.8+\xMax)/2},-.5) node {NOTA};
+\end{tikzpicture}
+
+\bigskip
+\bigskip
+\bigskip
+\noindent
+\begin{tikzpicture}
+	\tikzmath
+	{
+		coordinate \xMa;
+		\xMa = (\textwidth-0.4pt,0);
+	}
+	\foreach \x in {0, ..., 5}
+	{
+		\draw ({\x*\xMax/6},0) rectangle ++(\xMax/6,0.75);
+	}
+	\draw (0.62,0.4) node {\textbf{Fecha}}
+		++(\xMax/3,0) node {\textbf{Hora}}
+		++(\xMax/3,0)++(0.4,0) node {\textbf{Ambiente}}
+		;
+\end{tikzpicture}
+
+\bigskip
+\bigskip
+\noindent
+\begin{tikzpicture}
+	\tikzmath
+	{
+		coordinate \xMa;
+		\xMa = (\textwidth-0.4pt,0);
+	}
+	\foreach \y in {0,1}
+	{
+		\draw (0,\y) rectangle +(\xMax*0.5,-1)
+			++(\xMax*0.5,0) rectangle ++(\xMax*0.25,-1)
+			+(0,1) rectangle (\xMax,\y-1);
+	}
+	\draw (\xMax*0.25,0.7) node {\textbf{Integrantes}}
+		++(\xMax*0.38,0) node {\textbf{Código}}
+		++(\xMax*0.25,0) node {\textbf{Participación}}
+		++(0,-0.4) node {\textbf{(\%)}}
+		;
+	\draw (\xMax*0.25,0.7-1) node {\textbf{Alberto Oporto Ames}}
+		++(\xMax*0.38,0) node {$\mathbf{201810518}$}
+		++(\xMax*0.25,0) node {\textbf{100\%}}
+		;
+\end{tikzpicture}
 
 \end{document}
 %}}}
