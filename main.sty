@@ -29,6 +29,9 @@
 \usepackage{graphicx}
 \usepackage{svg}
 \usepackage{subcaption}
+% https://tex.stackexchange.com/questions/429441/beautiful-section-styles
+\usepackage[explicit]{titlesec}
+\usepackage{soul}
 
 \usepackage{float}
 \usepackage{pgfplots}
@@ -80,7 +83,7 @@
 \setlength{\headheight}{20pt}
 \setlength{\textheight}{700pt}
 %}}}
-% Título {{{
+% Título y secciones {{{
 \title{\textbf{Laboratorio de Física II}}
 % Aqui hay que poner a los autores
 \author{
@@ -89,4 +92,31 @@
 		%\and <++>\\
 		%\texttt{<++>}\\
 		}
+\newcommand\secCaja[1]
+{%
+	#1%
+}
+
+\titleformat{\section}
+	{\Large\bfseries}
+	{}
+	{0pt}
+	{%
+		\begin{tabular*}{\linewidth}{|c|c @{\extracolsep{\fill}} c|}%
+			\hline%
+			\thesection & #1 & \ \\%
+			\hline%
+		\end{tabular*}%
+	}
+\titleformat{\subsection}
+	{\Large\bfseries}
+	{}
+	{0pt}
+	{%
+		\begin{tabular*}{\linewidth}{|c|c @{\extracolsep{\fill}} c|}%
+			\hline%
+			\thesubsection & #1 & \ \\%
+			\hline%
+		\end{tabular*}%
+	}
 %}}}
