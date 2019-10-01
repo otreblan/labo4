@@ -7,9 +7,10 @@
 %\maketitle
 \thispagestyle{fancy}
 
+% Carátula {{{
 \begin{center}
-	LABORATORIO DE FÍSICA 2\\
-	Informe del Laboratorio N° 1
+	$1^{\text{ER}}$ LABORATORIO DE FÍSICA $2$
+	%Informe del Laboratorio N° 1
 \end{center}
 
 \noindent
@@ -31,21 +32,21 @@
 \bigskip
 \bigskip
 \noindent
-\begin{tikzpicture}
-	\tikzmath
-	{
-		coordinate \xMa;
-		\xMa = (\textwidth-0.4pt,0);
-	}
-	\foreach \x in {0, ..., 5}
-	{
-		\draw ({\x*\xMax/6},0) rectangle ++(\xMax/6,0.75);
-	}
-	\draw (0.62,0.4) node {\textbf{Fecha}}
-		++(\xMax/3,0) node {\textbf{Hora}}
-		++(\xMax/3,0)++(0.4,0) node {\textbf{Ambiente}}
-		;
-\end{tikzpicture}
+%\begin{tikzpicture}
+	%\tikzmath
+	%{
+		%coordinate \xMa;
+		%\xMa = (\textwidth-0.4pt,0);
+	%}
+	%\foreach \x in {0, ..., 5}
+	%{
+		%\draw ({\x*\xMax/6},0) rectangle ++(\xMax/6,0.75);
+	%}
+	%\draw (0.62,0.4) node {\textbf{Fecha}}
+		%++(\xMax/3,0) node {\textbf{Hora}}
+		%++(\xMax/3,0)++(0.4,0) node {\textbf{Ambiente}}
+		%;
+%\end{tikzpicture}
 
 \bigskip
 \bigskip
@@ -72,96 +73,88 @@
 		++(\xMax*0.25,0) node {100\%}
 		;
 \end{tikzpicture}
+% }}}
 
 \newpage
-\section{OBJETIVOS}
-\begin{itemize}
-	\item Experiencia A:
-		\begin{itemize}
-			\item Encontrar múltiples líneas equipotenciales en un medio de dos dimensiones.
-			\item Estimar el campo eléctrico en diversos puntos.
-			\item Sacar conclusiones sobre sus propiedades.
-		\end{itemize}
-	\item Experiencia B:
-		\begin{itemize}
-			\item Observar el proceso de carga y descarga de un capacitor,
-				y contrastarlas curvas obtenidas (de voltaje respecto al tiempo)con las funciones
-				que se deberían obtener según los conceptos teóricos.
-			\item Estimar los valores de las resistencias utilizadas.
-		\end{itemize}
-	\item Experiencia C:
-		\begin{itemize}
-			\item Medir el campo magnético producido por dos bobinas.
-			\item Comprobar la ley de Biot-Savart, con su porcentaje de error respectivo.
-		\end{itemize}
-\end{itemize}
-\section{EXPERIENCIA A}
-Medí con un multímetro los punto en los que el voltaje era el mismo
-y apunté sus coordenadas en una tabla.
+
+\section{EXPERIENCIA A:Observación de superficies equipotenciales y líneas de
+campo eléctrico}%
+
+\subsection{OBJETIVOS}%
 
 \subsection{PROCEDIMIENTO Y ANÁLISIS}%
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\linewidth, angle=-90]{20190917_152938}
-\end{figure}
-\subsection{ERRORES}%
-\subsection{COMENTARIOS Y OBSERVACIONES}%
-Mi primera hoja con ejes estaba mal dibujada y tuve que volver a hacerla.
-No puede hallar las lineas de campo en mi primera medición
-así que tuve que hacerlo otra vez.
 
-\section{EXPERIENCIA B}
-Gravé con mi celular a un multímetro que medía el voltaje de un capacitor.
-
-\subsection{PROCEDIMIENTO Y ANÁLISIS}%
-\subsection{ERRORES}%
 \subsection{COMENTARIOS Y OBSERVACIONES}%
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\linewidth, angle=-90]{20190917_163108}
-\end{figure}
+Tuve que tomar datos dos veces.
 
-\section{EXPERIENCIA C}
-Medí el campo magnético dentro de una bobina, de dos bobinas y fuera de las bobinas.
-Y escribí el promedio en una hoja.
+\subsection{CUESTIONARIO}%
 
-\subsection{PROCEDIMIENTO Y ANÁLISIS}%
-\subsection{ERRORES}%
-\subsection{COMENTARIOS Y OBSERVACIONES}%
-Olvidé medir el radio de la bobina y tomar una foto.
-
-\section{PREGUNTAS DEL CUESTIONARIO}
-\subsection{Observación de superficies equipotenciales y líneas de campo eléctrico}
-\begin{enumerate}[label=\roman*.]
-	\item Dibujar las líneas de campo y las líneas equipotenciales en la hoja cuadriculada,
-		no olvidar de dibujar el contorno y la posición de los electrodos usados.
+\begin{enumerate}[label=\roman*]
+	\item Dibujar las líneas de campo y las líneas equipotenciales en la hoja
+		cuadriculada, no olvidar de dibujar el contorno y la posición de los
+		electrodos usados.
 	\item Aproximar la carga de los electrodos al centro de los mismos,
-		mostrar el cálculo para obtener la carga total del electrodo.
-	\item Escoger 3 puntos que pertenecen a las líneas equipotenciales dibujadas y aproximar el valor
-		de la intensidad de campo eléctrico(mostrar los cálculos)
-		y también mostrar la dirección aproximada del vector intensidad de campo eléctrico.
+		mostar el cálculo para obtener la carga total del electrodo.
+	\item Esciger $3$ puntos que pertenecen a las líneas equipotenciales
+		dibujadas y aproximar el valor de la intensidad de campo
+		eléctrico (mostar los cálculos) y tambíen mostrar la dirección
+		aproximada del vector intensidad de campo eléctrico.
 \end{enumerate}
 
-\subsection{Carga y descarga de un condensador}
-\begin{enumerate}[label=\roman*.]
-	\item Mostrar y resolver la ecuación diferencial obtenida al aplicar las leyes de Kirchhoffen un circuito $RC$.
-		Mostrar la ecuación de voltaje respecto a tiempo que se debería obtener de manera teórica.
-	\item Comparar las funciones de carga y descarga observadas con las funciones obtenidas en el ítem anterior.
-		Usar Excel u otra herramienta para realizar la comparación de  las funciones.
-	\item Aproximar los valores de las resistencias $R_1$ y $R_2$ utilizando las gráficas obtenidas de carga y descarga.
+\subsection{CONCLUSIONES}%
+
+
+\section{EXPERIENCIA B:Carga y descarga de un condensador}%
+
+\subsection{OBJETIVOS}%
+
+\subsection{PROCEDIMIENTO Y ANÁLISIS}%
+
+\subsection{COMENTARIOS Y OBSERVACIONES}%
+
+No había el medidor de la guía, así que tuve que medir el voltaje con un
+multímetro y mi celular.
+
+\subsection{CUESTIONARIO}%
+\begin{enumerate}[label=\roman*]
+	\item Mostrar y resolver la ecuación diferencial obtenida al aplicar la
+		leyes de Kirchhoff en un circuito $RC$.
+		Mostrar la ecuación de voltaje respecto a tiempo que se debería
+		obtener de manera teórica.
+	\item Comparar las funciones de carga y descarga observadas con las
+		funciones obtenidas en el ítem anterior.
+		Usar \textbf{PGFPLOTS} para realizar la comparación de las funciones.
+	\item Aproximar los valores de la resistencia $R_1$ y $R_2$ utilizando
+		las gráficas obtenidas de carga y descarga.
 		Utilizar todos los puntos y obtener valores promedio de resistencias.
 \end{enumerate}
-\subsection{Magnetismo}
-\begin{enumerate}[label=\roman*.]
+
+\subsection{CONCLUSIONES}%
+
+\section{EXPERIENCIA C:Cuantificación del campo magnético}%
+
+\subsection{OBJETIVOS}%
+
+\subsection{PROCEDIMIENTO Y ANÁLISIS}%
+
+\subsection{COMENTARIOS Y OBSERVACIONES}%
+
+Al inicio conecté la bobina con unos cocodrilos.
+No había campo magnético.
+
+\subsection{CUESTIONARIO}%
+\begin{enumerate}[label=\roman*]
 	\item Utilizando las mediciones de campo magnético para una bobina,
 		estimar el valor de su número de vueltas $N$.
 	\item Utilizando el valor de $N$ hallado en el paso anterior,
-		determine el valor teórico del campo en el punto en el que se realizó la medición utilizando dos bobinas.
-		Compare esto con el valor medido, y halle el porcentaje de error respecto al valor teórico.
+		determina el valor teórico en el punto en el que se realizó la medición
+		utilizando dos bobinas.
+		Compara esto con el valor medido,
+		y halla el porcentaje de error respecto al valor teórico.
 \end{enumerate}
-\section{CONCLUSIONES}
-\section{REFERENCIAS}
+
+\subsection{CONCLUSIONES}%
 
 \end{document}
 %}}}

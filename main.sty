@@ -8,6 +8,7 @@
 \usepackage{fontspec}
 %\usepackage[mark, raisemark=0.02\paperheight, marknotags]{gitinfo2}
 \usepackage{setspace}
+\usepackage{etoolbox}
 
 \doublespacing
 
@@ -99,16 +100,27 @@
 	#1%
 }
 
+%\titleformat{\section}
+	%{\large\bfseries}
+	%{}
+	%{0pt}
+	%{%
+		%\begin{tabular*}{\linewidth}{|c|c @{\extracolsep{\fill}} c|}%
+			%\hline%
+			%\thesection & #1 & \ \\%
+			%\hline%
+		%\end{tabular*}%
+	%}
+\titlespacing*{\section}
+{0pt}{0pt}{-4ex}
 \titleformat{\section}
 	{\large\bfseries}
 	{}
 	{0pt}
 	{%
-		\begin{tabular*}{\linewidth}{|c|c @{\extracolsep{\fill}} c|}%
-			\hline%
-			\thesection & #1 & \ \\%
-			\hline%
-		\end{tabular*}%
+		\begin{center}%
+			#1%
+		\end{center}%
 	}
 \titleformat{\subsection}
 	{\large\bfseries}
