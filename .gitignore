@@ -1,4 +1,4 @@
-*.aux
+*.aux*
 *.fdb_latexmk
 *.fls
 *.log
@@ -6,6 +6,7 @@
 *.pdf
 *.synctex.gz
 svg-inkscape
+tikz
 *.bbl
 *.bcf
 *.blg

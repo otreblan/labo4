@@ -165,6 +165,78 @@ memoria libre.
 	\label{fig:bread}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=1, transform shape]
+		\begin{axis}
+			[
+				width=\linewidth,
+				height=6cm,
+				ymax=10,
+				%
+				title=\textbf{Carga},
+				%
+				axis y line=left,
+				axis x line=bottom,
+				axis line style = ultra thick,
+				%
+				xlabel={Tiempo $(s)$},
+				ylabel={Voltaje $(v)$},
+				ymajorgrids=true
+			]
+			\addplot
+				[
+					color=red,
+					ultra thick
+				]
+				table
+				[
+					col sep=comma,
+					%
+					x index=0,
+					y index=1
+				]
+				{carga.csv};
+		\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=1, transform shape]
+		\begin{axis}
+			[
+				width=\linewidth,
+				height=6cm,
+				ymax=10,
+				%
+				title=\textbf{Descarga},
+				%
+				axis y line=left,
+				axis x line=bottom,
+				axis line style = ultra thick,
+				%
+				xlabel={Tiempo $(s)$},
+				ylabel={Voltaje $(v)$},
+				ymajorgrids=true
+			]
+			\addplot
+				[
+					color=red,
+					ultra thick
+				]
+				table
+				[
+					col sep=comma,
+					%
+					x index=0,
+					y index=1
+				]
+				{descarga.csv};
+		\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
 \subsection{COMENTARIOS Y OBSERVACIONES}%
 
 No había el medidor logger pro de la guía,

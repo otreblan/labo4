@@ -43,6 +43,12 @@
 \usetikzlibrary{babel}
 \usetikzlibrary{arrows.meta}
 \graphicspath{ {ima/} }
+
+% Esto crea un caché para las imágenes de tikz (depende del paquete svg)
+\usetikzlibrary{external}
+\newcommand{\tikzprefix}{tikz/}
+\svg@shell@mkdir{\tikzprefix}
+\tikzexternalize[prefix=\tikzprefix]
 %}}}
 % Colores de los links {{{
 \definecolor{red}{HTML}{F22C40}
@@ -70,6 +76,7 @@
 %\chead{ \textbf{\normalsize{Física II} }}
 \fancyhf[HR]{Laboratorio de Física 2. 2019-2}
 \fancyhf[FC]{
+	\tikzset{external/export=false} % Al parecer esto no se puede externalizar
 	\noindent
 	\begin{tikzpicture}
 		\tikzmath
