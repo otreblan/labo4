@@ -165,74 +165,58 @@ memoria libre.
 	\label{fig:bread}
 \end{figure}
 
+\pgfplotsset
+{
+	% Para más argumento habría que poner "n args" a la derecha del /.style
+	% Estilo del cuadro
+	grafico/.style=
+	{
+		width=\linewidth,
+		height=6cm,
+		ymax=10,
+		%
+		title=\textbf{#1},
+		%
+		axis y line=left,
+		axis x line=bottom,
+		axis line style = ultra thick,
+		%
+		xlabel={Tiempo $(s)$},
+		ylabel={Voltaje $(v)$},
+		ymajorgrids=true
+	},
+	% Estilo de la línea del voltaje
+	linea/.style=
+	{
+		color=red,
+		ultra thick
+	},
+	% "Estilo" de la tabla
+	table/volt/.style=
+	{
+		col sep=comma,
+		%
+		x index=0,
+		y index=1
+	}
+}
+
 \begin{figure}[H]
 	\centering
+
 	\begin{tikzpicture}[scale=1, transform shape]
-		\begin{axis}
-			[
-				width=\linewidth,
-				height=6cm,
-				ymax=10,
-				%
-				title=\textbf{Carga},
-				%
-				axis y line=left,
-				axis x line=bottom,
-				axis line style = ultra thick,
-				%
-				xlabel={Tiempo $(s)$},
-				ylabel={Voltaje $(v)$},
-				ymajorgrids=true
-			]
-			\addplot
-				[
-					color=red,
-					ultra thick
-				]
-				table
-				[
-					col sep=comma,
-					%
-					x index=0,
-					y index=1
-				]
-				{carga.csv};
+		\begin{axis}[grafico=Carga]
+			\addplot[linea] table[volt] {carga.csv};
 		\end{axis}
 	\end{tikzpicture}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
+
 	\begin{tikzpicture}[scale=1, transform shape]
-		\begin{axis}
-			[
-				width=\linewidth,
-				height=6cm,
-				ymax=10,
-				%
-				title=\textbf{Descarga},
-				%
-				axis y line=left,
-				axis x line=bottom,
-				axis line style = ultra thick,
-				%
-				xlabel={Tiempo $(s)$},
-				ylabel={Voltaje $(v)$},
-				ymajorgrids=true
-			]
-			\addplot
-				[
-					color=red,
-					ultra thick
-				]
-				table
-				[
-					col sep=comma,
-					%
-					x index=0,
-					y index=1
-				]
-				{descarga.csv};
+		\begin{axis}[grafico=Descarga]
+			\addplot[linea] table [volt] {descarga.csv};
 		\end{axis}
 	\end{tikzpicture}
 \end{figure}
