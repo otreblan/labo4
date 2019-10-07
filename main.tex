@@ -571,6 +571,16 @@ así que tuve que medir el voltaje con un multímetro y mi celular.
 		leyes de Kirchhoff en un circuito $RC$.
 		Mostrar la ecuación de voltaje respecto a tiempo que se debería
 		obtener de manera teórica.
+		\begin{align*}
+			C \frac{dV}{dt} + \frac{V}{R_1} &= 0 \\
+			C \frac{dV}{dt} &= -\frac{V}{R_1}\\
+			\frac{dV}{V} &= -\frac{dt}{R_1C}\\
+			\int^V_{V_0}\frac{dV}{V} &= -\int^t_0\frac{dt}{R_1C}\\
+			\ln{ \frac{V}{V_0} } &= \frac{-t}{R_1C} \\
+			\frac{V}{V_0} &= e^{\frac{-t}{R_1C}} \\
+			V &= V_0e^{\frac{-t}{R_1C}} \\
+			V &= 8e^{\frac{-t}{R_12200\mu F}}V \\
+		\end{align*}
 	\item Comparar las funciones de carga y descarga observadas con las
 		funciones obtenidas en el ítem anterior.
 		Usar \textbf{PGFPLOTS} para realizar la comparación de las funciones.
@@ -581,6 +591,7 @@ así que tuve que medir el voltaje con un multímetro y mi celular.
 
 \subsection{CONCLUSIONES}%
 
+\newpage
 \section{EXPERIENCIA C:Cuantificación del campo magnético}%
 
 \subsection{OBJETIVOS}%
