@@ -572,24 +572,69 @@ así que tuve que medir el voltaje con un multímetro y mi celular.
 		Mostrar la ecuación de voltaje respecto a tiempo que se debería
 		obtener de manera teórica.
 		\begin{align*}
-			C \frac{dV}{dt} + \frac{V}{R_1} &= 0 \\
-			C \frac{dV}{dt} &= -\frac{V}{R_1}\\
-			\frac{dV}{V} &= -\frac{dt}{R_1C}\\
-			\int^V_{V_0}\frac{dV}{V} &= -\int^t_0\frac{dt}{R_1C}\\
-			\ln{ \frac{V}{V_0} } &= \frac{-t}{R_1C} \\
-			\frac{V}{V_0} &= e^{\frac{-t}{R_1C}} \\
-			V &= V_0e^{\frac{-t}{R_1C}} \\
-			V &= 8e^{\frac{-t}{R_12200\mu F}}V \\
+			\intertext{Carga}
+			R_1\frac{dq}{dt} + \frac{q}{C} &= V_f\\
+			R_1\frac{dq}{dt} &= V_f -\frac{q}{C}\\
+			\frac{dq}{dt} &= \frac{CV_f-q}{R_1C}\\
+			\int_0^V\frac{dq}{CV_f-q} &= \int_0^t\frac{dt}{R_1C}\\
+			\ln{ \frac{CV_f-q}{CV_f} } &= \frac{-t}{R_1C}\\
+			\frac{CV_f-q}{CV_f} &= e^{\frac{-t}{R_1C}}\\
+			CV_f-q &= CV_fe^{\frac{-t}{R_1C}}\\
+			q &= CV_f\left(1-e^{\frac{-t}{R_1C}}\right)\\
+			\frac{q}{C} &= V_f\left(1-e^{\frac{-t}{R_1C}}\right)\\
+			V &= 8\left(1-e^{\frac{-t}{R_12200\mu F}}\right)V
+			\intertext{Descarga}
+			C \frac{dV}{dt} + \frac{V}{R_2} &= 0 \\
+			C \frac{dV}{dt} &= -\frac{V}{R_2}\\
+			\frac{dV}{V} &= -\frac{dt}{R_2C}\\
+			\int^V_{V_0}\frac{dV}{V} &= -\int^t_0\frac{dt}{R_2C}\\
+			\ln{ \frac{V}{V_0} } &= \frac{-t}{R_2C} \\
+			\frac{V}{V_0} &= e^{\frac{-t}{R_2C}} \\
+			V &= V_0e^{\frac{-t}{R_2C}} \\
+			V &= 8e^{\frac{-t}{R_22200\mu F}}V
 		\end{align*}
 	\item Comparar las funciones de carga y descarga observadas con las
 		funciones obtenidas en el ítem anterior.
 		Usar \textbf{PGFPLOTS} para realizar la comparación de las funciones.
+
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[scale=1, transform shape]
+			\begin{axis}[grafico={Carga $(R_1C=47)$}]
+				\addplot[linea] table[volt] {carga.csv};
+				\addplot[linea, blue, domain=0:250, restrict y to domain=0:10] {8*(1-e^(-x/47))};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[scale=1, transform shape]
+			\begin{axis}[grafico={Descarga $(R_2C=22)$}]
+				\addplot[linea] table [volt] {descarga.csv};
+				\addplot[linea, blue, domain=12:210, restrict y to domain=0:10] {8*e^((-x+12)/22)};
+			\end{axis}
+		\end{tikzpicture}
+	\end{figure}
 	\item Aproximar los valores de la resistencia $R_1$ y $R_2$ utilizando
 		las gráficas obtenidas de carga y descarga.
 		Utilizar todos los puntos y obtener valores promedio de resistencias.
+		\begin{align*}
+			R_1C &= 47\\
+			R_1 2200*10^{-6}F &= 47\\
+			R_1 &= 21.36k\Omega\\
+			\\
+			R_2C &= 22\\
+			R_2 2200*10^{-6}F &= 22\\
+			R_2 &= 10k\Omega
+		\end{align*}
 \end{enumerate}
 
 \subsection{CONCLUSIONES}%
+El capacitor puede descargarse un poco aún con el $S_2$ abierto.
+
+Además copiar a mano los datos es una molestia.
+Desperdicié mucho tiempo porque no había el logger pro.
 
 \newpage
 \section{EXPERIENCIA C:Cuantificación del campo magnético}%
@@ -603,13 +648,6 @@ del campo magnético.
 Datos
 \begin{itemize}
 	\item Campo magnético.
-\end{itemize}
-
-Medí el campo magnético lejos de la computadora.
-
-Después saqué el promedio del campo magnético dentro de una espira.
-Y al final dentro de dos.
-\begin{itemize}
 	\item Diámetro de las bobinas: $11.2cm$
 	\item Distancia entre la primera bobina y la punta del palo: $9.3cm$
 	\item Distancia entre las bobinas: $15cm$
@@ -627,6 +665,11 @@ Y al final dentro de dos.
 			\item $2.9$: $2.010mT$
 		\end{itemize}
 \end{itemize}
+
+Medí el campo magnético lejos de la computadora.
+
+Después saqué el promedio del campo magnético dentro de una espira.
+Y al final dentro de dos.
 
 \subsection{COMENTARIOS Y OBSERVACIONES}%
 
@@ -672,9 +715,107 @@ Olvidé tomar una foto de la última experiencia.
 		utilizando dos bobinas.
 		Compara esto con el valor medido,
 		y halla el porcentaje de error respecto al valor teórico.
+		\begin{align*}
+			\vec{B} &= \frac{\mu_0Ir^2\hat{\imath}}{2(r^2+d^2)^{\frac{3}{2}} }N
+			+
+			\frac{\mu_0Ir^2\hat{\imath}}{2(r^2+(D-d)^2)^{\frac{3}{2}} }N\\
+			%
+			\vec{B} &= \frac{N*\mu_0Ir^2}{2}
+			\left(
+				\frac{1}{(r^2+d^2)^{ \frac{3}{2} }}
+				+
+				\frac{1}{(r^2+(D-d)^2)^{ \frac{3}{2} }}
+			\right)\hat{\imath}\\
+			%
+			\vec{B} &= \frac{N*4\pi*10^{-7}I*3.14*10^{-3}}{2}
+			\left(
+				\frac{1}{(3.14*10^{-3}+8.1*10^{-3})^{ \frac{3}{2} }}
+				+
+				\frac{1}{(r^2+(D-d)^2)^{ \frac{3}{2} }}
+			\right)\hat{\imath}\\
+			%
+			\vec{B} &= N*\pi*10^{-10}I*6.28
+			\left(
+				\frac{1}{(11.24*10^{-3})^{ \frac{3}{2} }}
+				+
+				\frac{1}{(3.14*10^{-3}+3.25*10^{-3})^{ \frac{3}{2} }}
+			\right)\hat{\imath}\\
+			%
+			\vec{B} &= N*\pi*10^{-10}I*6.28
+			\left(
+				\frac{1}{(11.24*10^{-3})^{ \frac{3}{2} }}
+				+
+				\frac{1}{(6.39*10^{-3})^{ \frac{3}{2} }}
+			\right)\hat{\imath}\\
+			%
+			\vec{B} &= N*\pi*10^{-10}I*6.28
+			\left(
+				8.39*10^2
+				+
+				19.58*10^2
+			\right)\hat{\imath}\\
+			%
+			\vec{B} &= 91.92*\pi*10^{-8}I*6.28
+			*
+			27.97
+			\hat{\imath}\\
+			\vec{B} &= \pi*10^{-4}I*1.62
+			\hat{\imath}
+		\end{align*}
+		\begin{align*}
+			\intertext{$1.3A:$}
+			Er_{1.3} &=
+			\frac
+			{
+				|
+				(0.989-0.1438)*10^{-3}
+				-
+				\pi*10^{-4}*1.3*1.62
+				|
+			}
+			{
+				\pi*10^{-4}*1.3*1.62
+			}
+			*100\% \\
+			Er_{1.3} &= 27.75\%
+			\intertext{$1.6A:$}
+			Er_{1.6} &=
+			\frac
+			{
+				|
+				(1.183-0.1438)*10^{-3}
+				-
+				\pi*10^{-4}*1.6*1.62
+				|
+			}
+			{
+				\pi*10^{-4}*1.6*1.62
+			}
+			*100\% \\
+			Er_{1.6} &= 27.62\%
+			\intertext{$2.9A:$}
+			Er_{2.9} &=
+			\frac
+			{
+				|
+				(2.010-0.1438)*10^{-3}
+				-
+				\pi*10^{-4}*2.9*1.62
+				|
+			}
+			{
+				\pi*10^{-4}*2.9*1.62
+			}
+			*100\% \\
+			Er_{2.9} &= 26.44\%
+			\intertext{Promedio}
+			Er &= \frac{Er_{1.3}+Er_{1.6}+Er_{2.9}}{3}\\
+			Er &= 27.27\%
+		\end{align*}
 \end{enumerate}
 
 \subsection{CONCLUSIONES}%
+Las mediciones no fueron muy exactas.
 
 \end{document}
 %}}}
